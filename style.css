@@ -1,0 +1,158 @@
+body {background-color: #fafafa}
+
+button {
+  background-color: #eee;
+  margin: 2%;
+  border: 2px solid #000;
+  font-size: 1.5em;
+  width: 40px;
+  height: 40px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+img {
+  position: fixed;
+  right: 5%;
+  top: 18.23%;
+  width: 29.82%;
+  padding-bottom: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+#phraseInputBox {
+  position: fixed;
+  bottom: 0;left:0;
+  width: 100%;
+  height: 80px;
+  border-top: 2px solid #000;
+  background-color: #ddd;
+  padding: 5px;
+  font-family: Chivo;
+}
+
+#phraseInput, #tryTxt {
+  width: 90%;
+  background-color: #fff;
+  outline: none;
+  border-radius: 7px;
+  font-size: 17px;
+}
+#tryTxt {margin: 0 0 5% 5%}
+
+#phraseOutput {
+  letter-spacing: 15px;
+}
+
+.enterBtn {
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  margin-left: 2.5%;
+  font-size: 17px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+#phraseOutput {display: flex}
+
+.letter {
+  font-size: 50px;
+  text-align: center;
+  font-family: Architects Daughter;
+  z-index: -1;
+  font-weight: normal;
+}
+
+.winBox, .loseBox {
+  width: 52%;
+  height: 48%;
+  position: fixed;
+  top: 24%;
+  left: 26%;
+  background-color: #fff;
+  border: 2px solid #000;
+  z-index: 2;
+  opacity: 0;
+  overflow-y: auto
+}
+
+.restart {
+  margin-left: calc((100% - 100px)/2);
+  width: 100px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.restart:hover {background-color: #3d5}
+
+.winTitle {text-align: center;font-family: Chivo;}
+
+.winBox > p, .loseBox > p, .tryBox > p {
+  width: 100%;
+  text-align: center;
+  font-family: Flamenco;
+  font-size: 22px;
+}
+
+#guesses, #missGuesses {
+  position: fixed;left: 15px;bottom: 30px;
+  font-size: 25px;
+  font-family: Flamenco;
+}
+
+#completeBtn{
+  position: fixed;
+  left: 40%;
+  bottom: 2%;
+  width: 175px;
+  font-family: Flamenco;
+}
+
+.tryBox {
+  width: 40%;
+  height: 74%;
+  margin: 8% 0 0 30%;
+  background-color: #fff;
+  border: 2px solid #000;
+  z-index: 2;
+  opacity: 0;
+}
+
+.closeTryBox {
+  width: 97%;
+  text-align: right;
+  font-family: Flamenco;
+  margin: 0;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+#tries {
+  position: fixed;
+  left: 35vw;
+  top: 20vh;
+}
+
+.triesText {
+  position: fixed;
+  left: 35vw;
+  top: 15vh;
+  font-size: 25px;
+  font-family: Flamenco;
+  border-bottom: 1px solid black;
+  width: 315px;
+  text-align: center;
+  opacity: 0;
+}
+
+.version {
+  position: fixed;
+  right: 0;
+  top:-10px;
+  padding-right: 10px;
+  font-family: Flamenco;
+}

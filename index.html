@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mr. Hangman</title>
+    
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Architects Daughter" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+    <link rel="icon" href="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(6).png?v=1618671939374">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./tally.js"></script>
+    <script src="./script.js" defer></script>
+  </head>  
+  <body>
+    <p class="version">Version 1.1</p>
+    
+    <h1 id="phraseOutput"></h1>
+    
+    <p id="guesses">Guesses: 0</p>
+    <p id="missGuesses" style="bottom: 0px">Missed Guesses: 0</p>
+    <button id="completeBtn" onclick="tryComplete()">Guess Phrase</button>
+    
+    <div id="letters" style="position: fixed;top: 19.53%;opacity:0;width:25%;height:44.47%" align="center">
+      <div style="display: flex">
+        <button id="a" onclick="guess('a')">a</button>
+        <button id="b" onclick="guess('b')">b</button>
+        <button id="c" onclick="guess('c')">c</button>
+        <button id="d" onclick="guess('d')">d</button>
+        <button id="e" onclick="guess('e')">e</button>
+        <button id="f" onclick="guess('f')">f</button>
+        <button id="g" onclick="guess('g')">g</button>
+        <button id="h" onclick="guess('h')">h</button>
+        <button id="i" onclick="guess('i')">i</button>
+        <button id="j" onclick="guess('j')">j</button>
+      </div>
+      <div style="display: flex">
+        <button id="k" onclick="guess('k')">k</button>
+        <button id="l" onclick="guess('l')">l</button>
+        <button id="m" onclick="guess('m')">m</button>
+        <button id="n" onclick="guess('n')">n</button>
+        <button id="o" onclick="guess('o')">o</button>
+        <button id="p" onclick="guess('p')">p</button>
+        <button id="q" onclick="guess('q')">q</button>
+        <button id="r" onclick="guess('r')">r</button>
+        <button id="s" onclick="guess('s')">s</button>
+        <button id="t" onclick="guess('t')">t</button>
+      </div>
+      <div style="display: flex">
+        <button id="u" onclick="guess('u')">u</button>
+        <button id="v" onclick="guess('v')">v</button>
+        <button id="w" onclick="guess('w')">w</button>
+        <button id="x" onclick="guess('x')">x</button>
+        <button id="y" onclick="guess('y')">y</button>
+        <button id="z" onclick="guess('z')">z</button>
+      </div>
+    </div>
+    
+    <div class="triesText">Tries</div>
+    <div id="tries"></div>
+    
+    <img id="pic0" style="opacity:1" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(1).png?v=1618670877276">
+    <img id="pic1" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker.png?v=1618670555649"> <!--Head-->
+    <img id="pic2" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(2).png?v=1618671187485"> <!--Body-->
+    <img id="pic3" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(3).png?v=1618671369413"> <!--Right Leg-->
+    <img id="pic4" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(4).png?v=1618671623998"> <!--Left Leg-->
+    <img id="pic5" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(5).png?v=1618671774036"> <!--Right Arm-->
+    <img id="pic6" src="https://cdn.glitch.com/afb0621a-c702-4080-8dea-75bcf6c41218%2Fezgif.com-gif-maker%20(6).png?v=1618671939374"> <!--Left Arm-->
+    
+    <div id="phraseInputBox">
+      <p class="inputLable">Type the phrase below...</p>
+      <div style="display: flex">
+        <input id="phraseInput" type="text" placeholder="Type the phrase here..." spellcheck="false" autocomplete="off">
+        <div class="enterBtn" onclick="enter()">Enter</div>
+      </div>
+    </div>
+    
+    <div class="winBox">
+      <h1 class="winTitle">You Win!</h1>
+      <p id="winInput" style="font-weight: bold;text-decoration: underline;font-family: Architects Daughter"></p>
+      <p id="winGuesses"></p>
+      <button class="restart" onclick="location.reload()">Play Again</button>
+    </div>
+    
+    <div class="loseBox">
+      <h2 class="winTitle">You Lose!</h2>
+      <p>Oh no! You have used all 6 guesses!</p>
+      <p>The answer was:</p>
+      <p id="loseAnswer" style="font-weight: bold;text-decoration: underline;font-family: Architects Daughter"></p>
+      <button class="restart" onclick="location.reload()">Play Again</button>
+    </div>
+    
+    <div class="tryBox">
+      <div class="closeTryBox" title="Close" onclick="$('.tryBox').hide();$('.tryBox').css('opacity', 0)">X</div>
+      <p style="text-align: center">Try and guess the phrase (include punctuation)</p>
+      <input id="tryTxt" type="text" placeholder="Type the phrase here..." spellcheck="false">
+      <button class="restart" onclick="tryCompleteGuess()">Enter</button>
+    </div>
+  </body>
+</html>
